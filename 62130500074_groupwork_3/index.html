@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gura Gallery</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+ 
+
+    <body background="images/bg1.jpg">
+        <div id="app" class="container mx-auto h-screen flex items-center justify-center  " > 
+            <div>
+                <h1 class="text-2xl font-bold text-center">Gura Gallery({{ getImgLength }}) Likes({{countLikes}})</h1>
+                <div v-for="(Guraimgs,index) in imgs" class="flex my-5 items-center  ">
+                    <img class=" hover:bg-red-700 w-32 mr-4 cursor-pointer rounded shadow-x " :src="Guraimgs.src"  v-on:click="GuraShow(index)">
+                    <div class="font-bold hover:text-red-600"><p>{{ Guraimgs.love }}</p></div>
+                    
+                    <i v-if="Guraimgs.likes" class="fas fa-heart ml-5 hover:text-red-600" style="color: red;"></i>
+                </div>
+            </div>
+        </div>
+  
+
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+</body>
+
+</html>
